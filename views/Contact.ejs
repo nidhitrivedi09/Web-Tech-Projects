@@ -1,0 +1,104 @@
+<!--= Contact page =-->
+
+<% include partials/header.ejs %> <% include partials/main_nav.ejs %>
+<div class="contact-container">
+  <div class="header">
+    <h2 class="whiteText text-center">Contact Me</h2>
+
+    <p class="span-text">
+      Let's make something new, different and more meaningful or make thing more
+      visual or conceptual?
+    </p>
+    <div style="margin-top: -1px">
+      <span class="fa fa-envelope" style="margin-right: 10px"></span>
+      <a href="mailto:ntrive15@my.centennialcollege.ca" class="mail">Mail me</a>
+      <hr class="small" style="border: inset" />
+    </div>
+    <br />
+    <!--contact form-->
+    <div class="container">
+        <% if (title == "Contact"){ %>
+        <form
+          role="form"
+          id="contact-form"
+          class="contact-form"
+          action="/contact"
+          method="POST"
+        >
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="fname"
+                  class="form-control" style="border-style:ridge"
+                  name="fname"
+                  placeholder="First Name"
+                />
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="lname"
+                  class="form-control" style="border-style:ridge"
+                  name="lname"
+                  placeholder="Last Name"
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control" style="border-style:ridge"
+                  ;
+                  name="email"
+                  autocomplete="off"
+                  id="email"
+                  placeholder="E-mail"
+                />
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <input
+                  type="number"
+                  id="contactnumber"
+                  class="form-control" style="border-style:ridge"
+                  name="contactnumber"
+                  placeholder="Phone number"
+                />
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="form-group">
+                <textarea
+                  class="form-control textarea" style="border-style:ridge"
+                  rows="4"
+                  name="Message"
+                  id="Message"
+                  placeholder="Message"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12" style="padding-left: 440px">
+                <input type="submit"
+                  class="btn btn-dark btn-lg" value="Submit">
+                
+              </div>
+            </div>
+        </form>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</div>
+
+<% include partials/footer.ejs %> <% include partials/bottom_nav.ejs %>

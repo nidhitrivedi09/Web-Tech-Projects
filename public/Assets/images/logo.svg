@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="248" height="84" viewBox="0 0 248 84">
+  <g id="logo" transform="translate(-130 -60)">
+    <text id="C_der" data-name="C       der" transform="translate(130 123)" fill="#111" font-size="60" font-family="Poppins-Bold, Poppins" font-weight="700" letter-spacing="0.016em"><tspan x="0" y="0" xml:space="preserve">C       der</tspan></text>
+    <g id="logo-code" transform="translate(187.169 -32.693)">
+      <g id="Group_34863" data-name="Group 34863" transform="translate(0 115.08)">
+        <path id="Path_36853" data-name="Path 36853" d="M24.535,178.557,0,165.176v-7.411l24.535-13.3v8.7l-17.1,8.213,17.1,8.523Z" transform="translate(0 -139.774)" fill="#ff4900"/>
+        <path id="Path_36854" data-name="Path 36854" d="M180.094,158.546l16.271-43.466h5.14L185.2,158.546Z" transform="translate(-151.368 -115.08)" fill="#ff4900"/>
+        <path id="Path_36855" data-name="Path 36855" d="M348.843,178.538v-8.657l17.093-8.454-17.093-8.388v-8.6l24.535,13.322v7.366Z" transform="translate(-293.201 -139.755)" fill="#ff4900"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+.girlimg {
+  width: auto;
+  height: 550px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.message {
+  font-family: fantasy;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: right;
+  color: rgb(2, 2, 34);
+  padding-left: 250px;
+}
