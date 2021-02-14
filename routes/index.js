@@ -3,13 +3,26 @@ var router = express.Router();
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Home", firstName: "",  lastName: ""});
+  res.render("index", {
+    title: "Home",
+    firstName: "",
+    lastName: "",
+    mail: "",
+    contactNumber: "",
+    message: "",
+  });
   console.log("title", title);
 });
 
 router.get("/home", function (req, res, next) {
-
-  res.render("index", { title: "Home", firstName: "",  lastName: "" });
+  res.render("index", {
+    title: "Home",
+    firstName: "",
+    lastName: "",
+    mail: "",
+    contactNumber: "",
+    message: "",
+  });
 });
 
 /* GET About Us page. */
@@ -36,10 +49,20 @@ router.get("/contact", function (req, res, next) {
 router.post("/contact", function (req, res, next) {
   let fname = req.body.fname;
   let lname = req.body.lname;
+  let email = req.body.email;
+  let contactnumber = req.body.contactnumber;
+  let Message = req.body.Message;
 
   console.log("test", req.body);
-
-  res.render('index', { title: "Home", firstName: fname, lastName: lname});
+  console.log(email);
+  res.render("index", {
+    title: "Home",
+    firstName: fname,
+    lastName: lname,
+    mail: email,
+    contactNumber: contactnumber,
+    message: Message,
+  });
 });
 
 module.exports = router;
