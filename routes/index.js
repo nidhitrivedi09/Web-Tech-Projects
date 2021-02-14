@@ -3,12 +3,13 @@ var router = express.Router();
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Home" });
+  res.render("index", { title: "Home", firstName: "",  lastName: ""});
   console.log("title", title);
 });
 
 router.get("/home", function (req, res, next) {
-  res.render("index", { title: "Home" });
+
+  res.render("index", { title: "Home", firstName: "",  lastName: "" });
 });
 
 /* GET About Us page. */
@@ -33,10 +34,12 @@ router.get("/contact", function (req, res, next) {
 
 /*POST Contact Us page. */
 router.post("/contact", function (req, res, next) {
-  let contactName = req.body.fname;
+  let fname = req.body.fname;
+  let lname = req.body.lname;
+
   console.log("test", req.body);
-  console.log("testing", contactName);
-  res.redirect("/home");
+
+  res.render('index', { title: "Home", firstName: fname, lastName: lname});
 });
 
 module.exports = router;
