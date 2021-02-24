@@ -1,0 +1,40 @@
+<%- include partials/header.ejs %> <%- include partials/main_nav.ejs %>
+
+<!--Login Form-->
+<div class="row mt-5">
+  <div class="col-md-4 m-auto">
+    <h1 class="text-center mb-3" style="font-family: verdana;font-size: 36px;">Login Here</h1>
+
+    <form action="/users/login" method="POST">
+      <div class="form-group">
+        <label for="username" class="theme" style="font-weight: bold;font-family: verdana;">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          class="form-control"
+          placeholder="Enter Username"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="password" class="theme" style="font-weight: bold;font-family: verdana;">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="form-control"
+          placeholder="Enter Password"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-dark btn-lg" style="padding: 10px;
+      border: none;
+      font-size: 22px;
+      margin-top: 40px;
+      width:20%;
+      text-align: center">Login</button>
+    </form>
+  </div>
+</div>
+<%- include partials/footer.ejs %> %> <%- include partials/bottom_nav.ejs %> %>

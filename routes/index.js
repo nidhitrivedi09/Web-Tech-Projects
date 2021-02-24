@@ -67,13 +67,14 @@ router.post("/contact", function (req, res, next) {
 });
 
 /* GET Business contacts page. */
-router.get("/business-contacts", (req, res, next) => {
+router.get("/business-contacts",ensureAuthenticated, (req, res, next) => {
   Contact.find({})
     .sort("contactName")
     .exec(function (err, ContactList) {
       if (err) {
         return console.log(err);
       } else {
+        console.log(ContactList)
         res.render("contacts", {
           title: "Business Contacts",
           ContactList: ContactList,
@@ -82,7 +83,7 @@ router.get("/business-contacts", (req, res, next) => {
     });
 });
 /* GET Business contact Add page. */
-router.get("/business-contacts/add/", (req, res, next) => {
+router.get("/business-contacts/add/",ensureAuthenticated, (req, res, next) => {
   //show the add view
   res.render("add", {
     title: "Add Contact",
@@ -90,7 +91,7 @@ router.get("/business-contacts/add/", (req, res, next) => {
 });
 
 /* GET Business contact Edit page. */
-router.get("/business-contacts/edit/:id", (req, res, next) => {
+router.get("/business-contacts/edit/:id",ensureAuthenticated, (req, res, next) => {
   let id = req.params.id;
 
   Contact.findById(id, (err, ContactToEdit) => {
@@ -108,16 +109,13 @@ router.get("/business-contacts/edit/:id", (req, res, next) => {
 });
 
 /* POST Business contacts page. create operation*/
-router.post("/business-contacts/add", (req, res, next) => {
-  console.log("Add entered");
+router.post("/business-contacts/add",ensureAuthenticated, (req, res, next) => {
 
   let newContact = Contact({
     username: req.user.username,
-    name: req.body.name,
     contactName: req.body.contactName,
     email: req.body.email,
     contactNumber: req.body.contactNumber,
-    organisationName: req.body.organisationName,
   });
 
   Contact.create(newContact, (err, Contact) => {
@@ -126,26 +124,22 @@ router.post("/business-contacts/add", (req, res, next) => {
       res.end(err);
     } else {
       // refresh the Business Contacts List
-      req.flash("Add", "Contact added Successfully");
       res.redirect("/business-contacts");
     }
   });
 });
 
 /* POST Business contacts page. update operation*/
-router.post("/business-contacts/edit/:id", (req, res, next) => {
-  console.log("update entered");
+router.post("/business-contacts/edit/:id",ensureAuthenticated, (req, res, next) => {
 
   let id = req.params.id;
   console.log(id);
   let updateContact = Contact({
     _id: req.params.id,
     username: req.user.username,
-    name: req.body.name,
     contactName: req.body.contactName,
     email: req.body.email,
     contactNumber: req.body.contactNumber,
-    organisationName: req.body.organisationName,
   });
   Contact.updateOne({ _id: id }, updateContact, (err) => {
     console.log("test loop", id);
@@ -155,15 +149,13 @@ router.post("/business-contacts/edit/:id", (req, res, next) => {
     } else {
       console.log("success");
       // refresh the Business Contacts List
-      req.flash("Edit", "Contact updated Successfully");
       res.redirect("/business-contacts");
     }
   });
 });
 
 /* DELETE Business contact delete operation. */
-router.get("/business-contacts/delete/:id", (req, res, next) => {
-  console.log("delete entered");
+router.get("/business-contacts/delete/:id",ensureAuthenticated, (req, res, next) => {
   let id = req.params.id;
   Contact.deleteOne({ _id: id }, (err) => {
     if (err) {
@@ -171,7 +163,6 @@ router.get("/business-contacts/delete/:id", (req, res, next) => {
       res.end(err);
     } else {
       // refresh the Business Contacts List
-      req.flash("Delete", "Contact deleted Successfully");
       res.redirect("/business-contacts");
     }
   });
