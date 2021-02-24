@@ -52,5 +52,26 @@
         <% } %>
           <a class="nav-link" href="/contact"> Contact </a>
         </li>
+        
+      <% if (title == "Business Contacts" || title== "Add Contact"||title=="Edit Contact"){ %>
+        <li class="nav-item active"  style="font-weight: bold">
+        <% } else  { %>
+        <li class="nav-item">
+        <% } %>
+          <a class="nav-link"  href="/business-contacts"> Business </a>
+        </li>
+        <% if (isAuthenticated) {%>
+        <li class="nav-item">
+        <a class="nav-link"  href="/users/logout"> Logout </a>
+      </li>
+        <%}else{%>
+          <% if (title == "Login") { %>
+          <li class="nav-item active"  style="font-weight: bold">
+          <% } else  { %>
+          <li class="nav-item">
+          <% } %>
+            <a class="nav-link"  href="/login"> Login </a>
+          </li>
+           <%}%>   
     </div>
   </nav>
