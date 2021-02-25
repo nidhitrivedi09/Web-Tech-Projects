@@ -6,52 +6,49 @@
     <div class="offset-md-1 col-md-10">
       <h1><%= title %></h1>
       <br />
-      <table class="table table-bordered table-striped table-hover">
-        <!-- Header Row-->
-        <tr class="d-flex">
-          <th class="text-center col-2">Contact Name</th>
-          <th class="text-center col-2">Contact Number</th>
-          <th class="text-center col-2">E-mail</th>
-        </tr>
 
-        <!-- Repeatable Template Row -->
-        <div style="display: flex; justify-content: space-between">
-          <button class="btn btn-primary" style="height: 60%; margin-top: 1.5%">
-            <a
-              href="/business-contacts/add/"
-              style="color: white"
-              class="btn btn-sm"
-              ><i class="fas fa-user-plus"></i> Add Contact</a
-            >
-          </button>
+      <!-- Repeatable Template Row -->
+      <div>
+        <div class="addbtn" style="height: 5%; padding-bottom: 25px">
+          <a href="/business-contacts/add/" class="btn"
+            ><i class="fas fa-user-plus"></i> Add Contact</a
+          >
         </div>
-
-        <% for(let count = 0; count < ContactList.length; count++) { %>
-        <tr class="d-flex">
-          <td class="text-center col-2">
-            <%= ContactList[count].contactName %>
-          </td>
-          <td class="text-center col-2">
-            <%= ContactList[count].contactNumber %>
-          </td>
-          <td class="text-center col-2"><%= ContactList[count].email %></td>
-          <td>
-            <a
-              href="/business-contacts/edit/<%= ContactList[count]._id %>"
-              class="btn btn-sm"
-            >
-              <i class="fas fa-user-edit"> </i
-            ></a>
-            <a
-              href="/business-contacts/delete/<%= ContactList[count]._id %>"
-              class="btn btn-sm"
-            >
-              <i class="far fa-trash-alt"> </i
-            ></a>
-          </td>
+      </div>
+      <table class="table table-bordered table-hover table-striped">
+        <!-- Header Row-->
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Contact Name</th>
+          <th scope="col">Contact Number</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Actions</th>
         </tr>
+        <tbody>
+          <% for(let count = 0; count < ContactList.length; count++) { %>
+          <tr>
+            <td scope="row"><%= count+1%></td>
+            <td><%= ContactList[count].contactName %></td>
+            <td><%= ContactList[count].contactNumber %></td>
+            <td><%= ContactList[count].email %></td>
+            <td>
+              <a
+                href="/business-contacts/edit/<%= ContactList[count]._id %>"
+                class="btn btn-sm" style="margin-top: 5px"
+              >
+                <i class="fas fa-user-edit"> </i
+              ></a>
+              <a
+                href="/business-contacts/delete/<%= ContactList[count]._id %>"
+                class="btn btn-sm" style="margin-top: 5px"
+              >
+                <i class="far fa-trash-alt"> </i
+              ></a>
+            </td>
+          </tr>
 
-        <% } %>
+          <% } %>
+        </tbody>
       </table>
     </div>
   </div>
