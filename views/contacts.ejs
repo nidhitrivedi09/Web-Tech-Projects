@@ -16,7 +16,6 @@
 
         <!-- Repeatable Template Row -->
         <div style="display: flex; justify-content: space-between">
-          <h1 class="py-2"><%= title%></h1>
           <button class="btn btn-primary" style="height: 60%; margin-top: 1.5%">
             <a
               href="/business-contacts/add/"
@@ -30,10 +29,10 @@
         <% for(let count = 0; count < ContactList.length; count++) { %>
         <tr class="d-flex">
           <td class="text-center col-2">
-            <%= ContactList[count].contactname %>
+            <%= ContactList[count].contactName %>
           </td>
           <td class="text-center col-2">
-            <%= ContactList[count].contactnumber %>
+            <%= ContactList[count].contactNumber %>
           </td>
           <td class="text-center col-2"><%= ContactList[count].email %></td>
           <td>
@@ -41,13 +40,13 @@
               href="/business-contacts/edit/<%= ContactList[count]._id %>"
               class="btn btn-sm"
             >
-              <i class="fas fa-user-edit" style="color: #007bff"> </i
+              <i class="fas fa-user-edit"> </i
             ></a>
             <a
               href="/business-contacts/delete/<%= ContactList[count]._id %>"
               class="btn btn-sm"
             >
-              <i class="far fa-trash-alt" style="color: #007bff"> </i
+              <i class="far fa-trash-alt"> </i
             ></a>
           </td>
         </tr>
