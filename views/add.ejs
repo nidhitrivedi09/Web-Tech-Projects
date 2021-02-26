@@ -1,18 +1,18 @@
 <%- include partials/header.ejs %> <%- include partials/main_nav.ejs %>
 <!-- Content for the Add page -->
-<div class="container">
+<div class="container" style="margin-top: 5%; margin-bottom: 2%">
   <div class="row">
     <div class="offset-md-3 col-md-6">
-      <h1><%= title %></h1>
+      <h1 class="header" style="padding-bottom:30px"><%= title %></h1>
 
-      <form class="form" method="POST" action="/business-contacts/add">
+      <form class="form" method="POST" action="/business-contacts/add" style="font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: medium;font-weight: bold;">
         <div class="form-group">
           <label for="contactName">Contact Name</label>
           <input
             type="text"
-            class="form-control"
+            class="form-control" 
             id="contactName"
-            placeholder="Enter Contact Name"
+            placeholder="Enter contact name"
             name="contactName"
             autocomplete="off"
             required
@@ -25,7 +25,7 @@
             type="email"
             class="form-control"
             id="email"
-            placeholder="Enter Email"
+            placeholder="Enter valid Email Adress"
             name="email"
             autocomplete="off"
             required
@@ -38,22 +38,21 @@
             type="number"
             class="form-control"
             id="contactNumber"
-            placeholder="Enter you Contact Number"
+            placeholder="Enter your contact number"
             name="contactNumber"
             autocomplete="off"
             required
           />
         </div>
 
-        <button class="btn btn-primary" type="submit">
+        <button class="btn btn-dark btn-lg" type="submit">
           <i class="fas fa-plus-circle"></i> Add
         </button>
 
-        <a href="/business-contacts" class="btn btn-warning">
+        <a href="/business-contacts" class="btn btn-dark btn-lg" type="submit">
           <i class="fas fa-undo"></i> Cancel</a
         >
       </form>
     </div>
   </div>
 </div>
-

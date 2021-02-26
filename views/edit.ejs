@@ -3,12 +3,12 @@
 <div class="container">
   <div class="row">
     <div class="offset-md-3 col-md-6">
-      <h1><%= title %></h1>
+      <h1 class="header" style="padding-bottom:30px"><%= title %></h1>
 
       <form
         class="form"
         method="POST"
-        action="/business-contacts/edit/<%= contact._id%>"
+        action="/business-contacts/edit/<%= contact._id%>" style="font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: medium;font-weight: bold"
       >
         <div class="form-group">
           <label for="name">Contact Name</label>
@@ -52,15 +52,15 @@
           />
         </div>
 
-        <button class="btn btn-primary" type="submit">
+        <button class="btn btn-dark" type="submit">
           <i class="fas fa-edit"></i> Update
         </button>
 
-        <a href="/business-contacts" class="btn btn-warning">
+        <a href="/business-contacts" class="btn btn-dark">
           <i class="fas fa-undo"></i> Cancel</a
         >
       </form>
     </div>
   </div>
 </div>
-<%- include partials/footer.ejs %> <%- include partials/bottom_nav.ejs %>
+
