@@ -5,8 +5,18 @@
   <div class="row">
     <div class="offset-md-1 col-md-10">
       <h1><%= title %></h1>
-      <br />
-
+ <!--Warning or Error message-->
+      <% if(messages.length > 0) {%>
+  <div
+    class="alert alert-success alert-dismissible fade show mb-1 text-center"
+    role="alert"
+  >
+    <strong> <%= messages %></strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+      <% } %>
       <!-- Repeatable Template Row -->
       <div>
         <div class="addbtn" style="height: 5%; padding-bottom: 25px">
@@ -37,7 +47,7 @@
           <%}else {%> 
           <% for(let count = 0; count < ContactList.length; count++){ %>
           <tr>
-            
+
             <td scope="row"><%= count+1%></td>
             <td><%= ContactList[count].contactName %></td>
             <td><%= ContactList[count].contactNumber %></td>

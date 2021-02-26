@@ -1,3 +1,6 @@
+/* app.js file
+Nidhi Trivedi , 301172350*/
+
 let createError = require("http-errors");
 let express = require("express");
 let path = require("path");
@@ -5,6 +8,8 @@ let cookieParser = require("cookie-parser");
 let logger = require("morgan");
 let passport = require("passport");
 let session = require("express-session");
+let flash = require("connect-flash");
+
 //passport config
 require("../config/passport")(passport);
 
@@ -47,6 +52,10 @@ let contactsRouter = require("../routes/contact");
 
 //Bodypasrser
 app.use(express.urlencoded({ extended: false }));
+
+// initialize flash
+app.use(flash());
+
 
 // view engine setup
 app.set("views", path.join(__dirname, "../views"));

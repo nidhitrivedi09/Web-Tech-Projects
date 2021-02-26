@@ -2,6 +2,7 @@ let express = require("express");
 let router = express.Router();
 let Contact = require("../models/contact");
 let { ensureAuthenticated } = require("../config/authenticate");
+let flash = ("connect-flash");
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.render("index", {
@@ -66,7 +67,7 @@ router.post("/contact", function (req, res, next) {
   });
 });
 
-/* GET Business contacts page. */
+/*  Business contacts page. */
 router.get("/business-contacts",ensureAuthenticated, (req, res, next) => {
   Contact.find({})
     .sort("contactName")
@@ -78,6 +79,7 @@ router.get("/business-contacts",ensureAuthenticated, (req, res, next) => {
         res.render("contacts", {
           title: "Business Contacts",
           ContactList: ContactList,
+          messages: req.flash("message"),
         });
       }
     });
@@ -108,7 +110,7 @@ router.get("/business-contacts/edit/:id",ensureAuthenticated, (req, res, next) =
   });
 });
 
-/* POST Business contacts page. create operation*/
+/* POST Business contacts page for create operation*/
 router.post("/business-contacts/add",ensureAuthenticated, (req, res, next) => {
 
   let newContact = Contact({
@@ -124,6 +126,7 @@ router.post("/business-contacts/add",ensureAuthenticated, (req, res, next) => {
       res.end(err);
     } else {
       // refresh the Business Contacts List
+      req.flash("message", "Contact added succesfully");
       res.redirect("/business-contacts");
     }
   });
@@ -149,7 +152,9 @@ router.post("/business-contacts/edit/:id",ensureAuthenticated, (req, res, next) 
     } else {
       console.log("success");
       // refresh the Business Contacts List
+      req.flash("messages","Updated successfully!");
       res.redirect("/business-contacts");
+      
     }
   });
 });
@@ -163,20 +168,27 @@ router.get("/business-contacts/delete/:id",ensureAuthenticated, (req, res, next)
       res.end(err);
     } else {
       // refresh the Business Contacts List
+      req.flash("messages","Deleted successfully!");
       res.redirect("/business-contacts");
+      
+      
     }
   });
 });
 
 /* GET Login page. */
 router.get("/login", function (req, res, next) {
-  res.render("login", { title: "Login" });
+  res.render("login", {
+     title: "Login" ,
+     messages: req.flash("loginMessage"),
+  });
 });
 
 /* Handle logout page. */
 router.get("/logout", function (req, res, next) {
   req.logout();
   req.session.destroy();
+  req.flash("message","Logout successfully!");
   res.redirect("/login");
 });
 

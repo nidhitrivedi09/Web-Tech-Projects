@@ -1,3 +1,5 @@
+// Nidhi Trivedi , 301172350, 14/02/2021
+
 const LocalStrategy = require("passport-local").Strategy;
 
 // Load User model
@@ -17,7 +19,7 @@ module.exports = function (passport) {
               message: "Incorrect Username!",
             });
           }
-          if (user && password !== password) {
+          if (user && password !== user.password) {
             return done(null, false, {
               message: "Incorrect Password!",
             });
