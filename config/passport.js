@@ -15,11 +15,13 @@ module.exports = function (passport) {
           username: username,
         }).then((user) => {
           if (!user) {
+            console.log("Test not user", user)
             return done(null, false, {
               message: "Incorrect Username!",
             });
           }
           if (user && password !== user.password) {
+            console.log("Test not password", password,user.password)
             return done(null, false, {
               message: "Incorrect Password!",
             });
